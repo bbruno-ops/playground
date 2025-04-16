@@ -1,0 +1,36 @@
+pipeline:
+  name: NestedRemotePipeline
+  identifier: NestedRemotePipeline
+  tags: {}
+  template:
+    templateRef: RemotePipelinewithstageandstepgroup
+    versionLabel: v1
+    templateInputs:
+      stages:
+        - stage:
+            identifier: S1
+            type: Deployment
+            spec:
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+        - stage:
+            identifier: Approval
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: Approval
+                      type: HarnessApproval
+                      spec:
+                        approvers:
+                          userGroups: <+input>
+                        callbackId: <+input>
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
