@@ -1,0 +1,25 @@
+template:
+  name: StageRemoteStep2
+  identifier: StageRemoteStep2
+  versionLabel: v0
+  type: Stage
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - stepGroup:
+              name: StepGroup
+              identifier: StepGroup
+              steps:
+                - step:
+                    name: StepTemplateinsideStepGroup
+                    identifier: StepTemplateinsideStepGroup
+                    template:
+                      templateRef: StepRemote2
+                      versionLabel: v0
+        rollbackSteps: []
+      serviceDependencies: []
