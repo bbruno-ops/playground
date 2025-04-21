@@ -1,0 +1,17 @@
+template:
+  name: PipelinewithStageStepRemote
+  identifier: PipelinewithStageStepRemote
+  versionLabel: v0
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: STageTemp
+          identifier: STageTemp
+          tags: {}
+          template:
+            templateRef: StageRemoteStep2
+            versionLabel: v0
