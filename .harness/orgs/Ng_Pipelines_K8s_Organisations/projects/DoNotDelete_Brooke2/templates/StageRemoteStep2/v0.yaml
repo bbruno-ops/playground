@@ -31,7 +31,7 @@ template:
                 source:
                   type: Inline
                   spec:
-                    script: echo 'added step shell script to stage'
+                    script: echo 'added step shell script to stage, change from 1 branch to main'
                 environmentVariables: []
                 outputVariables: []
               timeout: 10m
