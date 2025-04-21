@@ -1,0 +1,9 @@
+pipeline:
+  name: NestedPipeline2
+  identifier: NestedPipeline2
+  tags: {}
+  template:
+    templateRef: PipelinewithStageStepRemote
+    versionLabel: v0
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
