@@ -21,5 +21,19 @@ template:
                     template:
                       templateRef: StepRemote2
                       versionLabel: v0
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              spec:
+                shell: Bash
+                executionTarget: {}
+                source:
+                  type: Inline
+                  spec:
+                    script: echo 'added step shell script to stage'
+                environmentVariables: []
+                outputVariables: []
+              timeout: 10m
         rollbackSteps: []
       serviceDependencies: []
