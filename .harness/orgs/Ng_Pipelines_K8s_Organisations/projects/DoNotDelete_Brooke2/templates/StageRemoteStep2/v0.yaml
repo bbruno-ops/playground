@@ -31,7 +31,7 @@ template:
                 source:
                   type: Inline
                   spec:
-                    script: echo 'added step shell script to stage'
+                    script: echo 'added step shell script to stage, created changein repo on non default branch'
                 environmentVariables: []
                 outputVariables: []
               timeout: 10m
