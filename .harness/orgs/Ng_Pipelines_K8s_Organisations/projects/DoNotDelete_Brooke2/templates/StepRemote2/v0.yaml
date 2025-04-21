@@ -16,6 +16,8 @@ template:
       source:
         type: Inline
         spec:
-          script: echo ' step that belongs to step group'
+          script: |-
+            echo ' step that belongs to step group'
+            echo ' changed '
       environmentVariables: []
       outputVariables: []
