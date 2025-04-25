@@ -1,0 +1,47 @@
+pipeline:
+  name: PipelineRerunTest
+  identifier: PipelineRerunTest
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  stages:
+    - stage:
+        name: RemoteNestedPipeline
+        identifier: RemoteNestedPipeline
+        description: ""
+        type: Pipeline
+        spec:
+          org: Ng_Pipelines_K8s_Organisations
+          pipeline: RemoteNestedPipeline
+          project: DoNotDelete_Brooke2
+          inputs:
+            identifier: RemoteNestedPipeline
+            template:
+              templateInputs:
+                stages:
+                  - stage:
+                      identifier: S1
+                      type: Deployment
+                      spec:
+                        environment:
+                          environmentRef: <+input>
+                          environmentInputs: <+input>
+                          serviceOverrideInputs: <+input>
+                          infrastructureDefinitions: <+input>
+                        service:
+                          serviceRef: <+input>
+                          serviceInputs: <+input>
+                  - stage:
+                      identifier: Approval
+                      type: Approval
+                      spec:
+                        execution:
+                          steps:
+                            - step:
+                                identifier: Approval
+                                type: HarnessApproval
+                                spec:
+                                  approvers:
+                                    userGroups: <+input>
+                                  callbackId: <+input>
+        tags: {}
