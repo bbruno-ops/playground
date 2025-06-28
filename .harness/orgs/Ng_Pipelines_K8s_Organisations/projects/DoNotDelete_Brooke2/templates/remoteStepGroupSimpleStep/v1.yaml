@@ -1,0 +1,17 @@
+template:
+  name: remoteStepGroupSimpleStep
+  identifier: remoteStepGroupSimpleStep
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: simplestepGroup
+          identifier: simplestepGroup
+          tags: {}
+          template:
+            templateRef: StageRemoteStep2
+            versionLabel: v0
