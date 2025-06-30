@@ -20,7 +20,6 @@ template:
                     identifier: ShellScript_1
                     spec:
                       shell: Bash
-                      executionTarget: {}
                       source:
                         type: Inline
                         spec:
