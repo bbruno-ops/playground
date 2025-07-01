@@ -37,7 +37,7 @@ template:
                       source:
                         type: Inline
                         spec:
-                          script: echo 'step2 running'
+                          script: echo 'step2 run'
                       environmentVariables: []
                       outputVariables: []
                     timeout: 10m
