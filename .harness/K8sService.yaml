@@ -1,0 +1,47 @@
+service:
+  name: K8sService
+  identifier: K8sService
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Brooke2
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifestIdentifier
+            type: HelmChart
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: org.GithubAccLevelConnector
+                  gitFetchType: Branch
+                  folderPath: k8s/manifests/helm/todolist
+                  repoName: PipelinesNgAutomation
+                  branch: master
+              subChartPath: ""
+              valuesPaths:
+                - k8s/manifests/helm/todolist/values_dockercfg.yaml
+              optionalValuesYaml: false
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              helmVersion: V3
+              fetchHelmChartMetadata: false
+              commandFlags:
+                - commandType: Template
+                  flag: "--debug"
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - identifier: Primary
+              spec:
+                connectorRef: org.GCRConnectorForAutomationTest
+                repositoryType: docker
+                project: qa-target
+                region: us-east1
+                repositoryName: automation-todolist
+                package: automation-todolist
+                version: latest
+                digest: ""
+              type: GoogleArtifactRegistry
+    type: Kubernetes
