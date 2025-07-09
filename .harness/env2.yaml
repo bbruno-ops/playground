@@ -1,0 +1,8 @@
+environment:
+  name: env2
+  identifier: env2
+  tags: null
+  type: Production
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  projectIdentifier: DoNotDelete_Brooke2
+  description: null
