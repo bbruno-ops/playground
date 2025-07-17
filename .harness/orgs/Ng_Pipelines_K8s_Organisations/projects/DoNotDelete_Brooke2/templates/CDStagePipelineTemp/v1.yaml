@@ -1,0 +1,50 @@
+template:
+  name: CDStagePipelineTemp
+  identifier: CDStagePipelineTemp
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: d1
+          identifier: d1
+          description: ""
+          type: Deployment
+          spec:
+            deploymentType: Kubernetes
+            environment:
+              environmentRef: account.env
+              deployToAll: false
+              infrastructureDefinitions:
+                - identifier: Infra
+            services:
+              values:
+                - serviceRef: account.svc4
+                - serviceRef: account.CDNGAuto_SvcfHvQFsvKUT
+              metadata:
+                parallel: false
+            execution:
+              steps:
+                - step:
+                    type: Http
+                    name: Http_1
+                    identifier: Http_1
+                    spec:
+                      url: http://www.google.com
+                      method: GET
+                      headers: []
+                      inputVariables: []
+                      outputVariables: []
+                      requestBody: Http step body content
+                    timeout: 30s
+              rollbackSteps: []
+          tags: {}
+          failureStrategies:
+            - onFailure:
+                errors:
+                  - AllErrors
+                action:
+                  type: PipelineRollback
