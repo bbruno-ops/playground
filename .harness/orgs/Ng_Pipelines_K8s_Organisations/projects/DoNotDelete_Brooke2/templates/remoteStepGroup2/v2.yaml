@@ -1,0 +1,43 @@
+template:
+  name: remoteStepGroup2
+  type: StepGroup
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    stageType: Custom
+    steps:
+      - stepGroup:
+          name: Group1
+          identifier: Group1
+          steps:
+            - parallel:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo 'step 1'
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+                - step:
+                    type: ShellScript
+                    name: ShellScript_2
+                    identifier: ShellScript_2
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo 'step2 run'
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+  identifier: remoteStepGroup2
+  versionLabel: v2
