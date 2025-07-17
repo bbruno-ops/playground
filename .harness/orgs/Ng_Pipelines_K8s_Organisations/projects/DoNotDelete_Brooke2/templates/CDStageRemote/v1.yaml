@@ -1,0 +1,44 @@
+template:
+  name: CDStageRemote
+  identifier: CDStageRemote
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  spec:
+    type: Deployment
+    spec:
+      deploymentType: Kubernetes
+      gitOpsEnabled: false
+      service:
+        serviceRef: <+input>
+        serviceInputs: <+input>
+      environment:
+        environmentRef: account.CDCNGAuto_EnvNgtbca9jm6q2
+        deployToAll: false
+        infrastructureDefinitions:
+          - identifier: CDCNGAuto_InfraNgwepd1vbrRq
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: parse build number
+              identifier: parse_build_number
+              spec:
+                shell: Bash
+                source:
+                  type: Inline
+                  spec:
+                    script: echo "ecrTemp"
+                environmentVariables: []
+                outputVariables: []
+                executionTarget: {}
+              timeout: 10m
+        rollbackSteps: []
+    failureStrategies:
+      - onFailure:
+          errors:
+            - AllErrors
+          action:
+            type: StageRollback
+    gitOpsEnabled: false
