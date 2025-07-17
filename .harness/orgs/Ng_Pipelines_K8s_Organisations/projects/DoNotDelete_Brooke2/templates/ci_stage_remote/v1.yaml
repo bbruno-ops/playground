@@ -1,0 +1,26 @@
+template:
+  name: ci_stage_remote
+  type: Stage
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  spec:
+    type: CI
+    spec:
+      cloneCodebase: true
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Cloud
+        spec: {}
+      execution:
+        steps:
+          - step:
+              type: Run
+              name: Run_1
+              identifier: Run_1
+              spec:
+                shell: Sh
+                command: <+input>
+  identifier: ci_stage_remote
+  versionLabel: v1
