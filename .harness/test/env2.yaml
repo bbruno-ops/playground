@@ -1,0 +1,29 @@
+---
+environment:
+  tags: {}
+  type: "PreProduction"
+  orgIdentifier: "default"
+  projectIdentifier: "DoNotDelete_Brooke"
+  variables:
+  - name: "var1"
+    type: "String"
+    value: "<+input>"
+    description: "Description for Environment "
+    required: true
+  - name: "var2"
+    type: "String"
+    value: "<+input>"
+    description: ""
+    required: true
+  - name: "var3"
+    type: "String"
+    value: "<+input>"
+    description: "optional"
+    required: false
+  - name: "var4"
+    type: "String"
+    value: "<+input>"
+    description: ""
+    required: false
+  identifier: "env2"
+  name: "env2"
