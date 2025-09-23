@@ -72,3 +72,24 @@ template:
               environmentInputs: <+input>
               infrastructureDefinitions: <+input>
           tags: {}
+    variables:
+      - name: var1
+        type: String
+        description: ""
+        required: false
+        value: <+input>
+      - name: CDKEnv
+        type: String
+        description: ""
+        required: false
+        value: <+input>
+      - name: repo
+        type: String
+        description: ""
+        required: false
+        value: <+input>
+      - name: branch
+        type: String
+        description: ""
+        required: false
+        value: <+input>
