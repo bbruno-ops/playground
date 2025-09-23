@@ -40,7 +40,7 @@ template:
                     name: Run_1
                     identifier: Run_1
                     spec:
-                      registryRef: <+input>
+                      connectorRef: <+input>
                       image: <+input>
                       shell: Sh
                       command: <+input>
