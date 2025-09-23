@@ -1,0 +1,74 @@
+template:
+  name: featureCDKDeploy
+  identifier: featureCDKDeploy
+  versionLabel: "1"
+  type: Pipeline
+  projectIdentifier: DoNotDelete_Brooke2
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    properties:
+      ci:
+        codebase:
+          repoName: <+input>
+          build: <+input>
+    stages:
+      - stage:
+          name: c1
+          identifier: c1
+          description: ""
+          type: CI
+          spec:
+            cloneCodebase: true
+            caching:
+              enabled: true
+              override: true
+            buildIntelligence:
+              enabled: true
+            infrastructure:
+              type: KubernetesDirect
+              spec:
+                connectorRef: <+input>
+                namespace: <+input>
+                automountServiceAccountToken: true
+                nodeSelector: {}
+                os: Linux
+            execution:
+              steps:
+                - step:
+                    type: Run
+                    name: Run_1
+                    identifier: Run_1
+                    spec:
+                      registryRef: <+input>
+                      image: <+input>
+                      shell: Sh
+                      command: <+input>
+      - stage:
+          name: custom
+          identifier: custom
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: <+input>
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+            environment:
+              environmentRef: <+input>
+              deployToAll: false
+              environmentInputs: <+input>
+              infrastructureDefinitions: <+input>
+          tags: {}
