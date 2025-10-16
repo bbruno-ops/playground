@@ -3,7 +3,8 @@ template:
   type: StepGroup
   projectIdentifier: DoNotDelete_Brooke2
   orgIdentifier: Ng_Pipelines_K8s_Organisations
-  tags: {}
+  tags:
+    tag1: ""
   spec:
     stageType: Custom
     steps:
