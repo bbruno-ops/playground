@@ -23,7 +23,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo "push it to the limit3"
+                        script: echo "push it to the limit4"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
